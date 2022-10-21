@@ -3,6 +3,6 @@ plugins {
 }
 
 dependencies {
-    implementation("com.github.ajalt.clikt:clikt:${V.clikt}")
-    implementation("io.github.vantoozz:dikt:${V.dikt}")
+    api("com.github.ajalt.clikt:clikt:${V.clikt}")
+    api("io.github.vantoozz:dikt:${V.dikt}")
 }

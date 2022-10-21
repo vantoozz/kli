@@ -19,7 +19,7 @@ internal class LogEnvironment: AbstractCommand<LogEnvironment.Handler>() {
         }
     }
 
-    data class Environment(
+    internal data class Environment(
         val value: String,
     )
 }

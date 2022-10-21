@@ -1,6 +1,5 @@
 import com.github.ajalt.clikt.core.context
 import io.github.vantoozz.dikt.bind
-import io.github.vantoozz.dikt.dikt
 import io.github.vantoozz.dikt.put
 import io.github.vantoozz.kli.commands.LogEnvironment
 import io.github.vantoozz.kli.kli
@@ -18,10 +17,8 @@ internal class CommandEnvironmentTest {
 
         kli(
             { environment ->
-                dikt {
-                    put(LogEnvironment.Environment(environment ?: ""))
-                    bind<Logger>(mock)
-                }
+                put(LogEnvironment.Environment(environment ?: ""))
+                bind<Logger>(mock)
             },
             LogEnvironment().context {
                 envvarReader = { envvars[it] }
@@ -39,10 +36,8 @@ internal class CommandEnvironmentTest {
 
         kli(
             { environment ->
-                dikt {
-                    put(LogEnvironment.Environment(environment ?: ""))
-                    bind<Logger>(mock)
-                }
+                put(LogEnvironment.Environment(environment ?: ""))
+                bind<Logger>(mock)
             },
             LogEnvironment(),
         ).parse(listOf("log-environment", "--env=some_value"))
@@ -58,10 +53,8 @@ internal class CommandEnvironmentTest {
 
         kli(
             { environment ->
-                dikt {
-                    put(LogEnvironment.Environment(environment ?: ""))
-                    bind<Logger>(mock)
-                }
+                put(LogEnvironment.Environment(environment ?: ""))
+                bind<Logger>(mock)
             },
             LogEnvironment(),
         ).parse(listOf("log-environment", "-e", "some_value"))

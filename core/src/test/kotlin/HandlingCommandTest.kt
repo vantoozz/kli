@@ -1,5 +1,4 @@
 import io.github.vantoozz.dikt.bind
-import io.github.vantoozz.dikt.dikt
 import io.github.vantoozz.kli.commands.LogSomething
 import io.github.vantoozz.kli.kli
 import io.github.vantoozz.kli.mocks.Logger
@@ -16,9 +15,7 @@ internal class HandlingCommandTest {
 
         kli(
             {
-                dikt {
-                    bind<Logger>(mock)
-                }
+                bind<Logger>(mock)
             },
             LogSomething(),
         ).parse(listOf("log-something"))
