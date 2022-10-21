@@ -10,7 +10,7 @@ import kotlin.test.assertTrue
 internal class HandlingCommandTest {
 
     @Test
-    fun `it prints to console`() {
+    fun `it creates handler`() {
 
         val mock = LoggerMock()
 

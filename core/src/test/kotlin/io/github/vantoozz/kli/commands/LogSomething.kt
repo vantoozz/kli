@@ -7,13 +7,13 @@ internal class LogSomething : AbstractCommand<LogSomething.Handler>() {
     override val handler = Handler::class
 
     override fun handle(handler: Handler) {
-        handler.doSomething()
+        handler.run()
     }
 
     internal class Handler(
         private val logger: Logger,
     ) {
-        fun doSomething() {
+        fun run() {
             logger.log("some string")
         }
     }
