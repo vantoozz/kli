@@ -1,10 +1,10 @@
 package io.github.vantoozz.kli.config.commands
 
-import io.github.vantoozz.kli.commands.AbstractCommand
+import io.github.vantoozz.kli.commands.KliCommand
 import io.github.vantoozz.kli.config.Config
 import io.github.vantoozz.kli.config.Logger
 
-internal class LogConfigType : AbstractCommand<LogConfigType.Handler>() {
+internal class LogConfigType : KliCommand<LogConfigType.Handler>() {
 
     override val handler = Handler::class
 

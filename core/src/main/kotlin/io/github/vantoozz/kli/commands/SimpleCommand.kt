@@ -1,6 +1,6 @@
 package io.github.vantoozz.kli.commands
 
-abstract class SimpleCommand : AbstractCommand<Unit>() {
+abstract class SimpleCommand : KliCommand<Unit>() {
 
     override val handler = Unit::class
 

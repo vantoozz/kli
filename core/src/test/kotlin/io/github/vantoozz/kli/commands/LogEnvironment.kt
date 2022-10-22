@@ -2,7 +2,7 @@ package io.github.vantoozz.kli.commands
 
 import io.github.vantoozz.kli.mocks.Logger
 
-internal class LogEnvironment: AbstractCommand<LogEnvironment.Handler>() {
+internal class LogEnvironment: KliCommand<LogEnvironment.Handler>() {
 
     override val handler = Handler::class
 

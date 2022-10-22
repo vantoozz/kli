@@ -6,7 +6,6 @@ import io.github.vantoozz.kli.config.commands.LogLoadedConfig
 import io.github.vantoozz.kli.config.commands.LogStaticConfig
 import io.github.vantoozz.kli.config.configs.LoadedConfig
 import io.github.vantoozz.kli.config.configs.StaticConfig
-import io.github.vantoozz.kli.kli
 import org.junit.jupiter.api.Test
 import kotlin.test.assertTrue
 

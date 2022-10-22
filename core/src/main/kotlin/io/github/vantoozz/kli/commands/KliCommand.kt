@@ -5,7 +5,7 @@ import com.github.ajalt.clikt.parameters.options.option
 import io.github.vantoozz.kli.ContainerBuilder
 import kotlin.reflect.KClass
 
-abstract class AbstractCommand<T : Any> : CliktCommand() {
+abstract class KliCommand<T : Any> : CliktCommand() {
 
     protected abstract val handler: KClass<T>
 

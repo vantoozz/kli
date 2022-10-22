@@ -5,16 +5,16 @@ import com.github.ajalt.clikt.core.subcommands
 import io.github.vantoozz.dikt.Container
 import io.github.vantoozz.dikt.MutableContainer
 import io.github.vantoozz.dikt.dikt
-import io.github.vantoozz.kli.commands.AbstractCommand
+import io.github.vantoozz.kli.commands.KliCommand
 
 typealias ContainerBuilder = (String?) -> Container
 
-fun kli(vararg commands: AbstractCommand<*>) =
+fun kli(vararg commands: KliCommand<*>) =
     kli({}, *commands)
 
 fun kli(
     containerBuilder: MutableContainer.(String?) -> Unit,
-    vararg commands: AbstractCommand<*>,
+    vararg commands: KliCommand<*>,
 ) = object : CliktCommand() {
     override fun run() = Unit
 }.apply {
