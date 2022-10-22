@@ -17,13 +17,13 @@ internal class ConfiguredCommandTest {
         val logger = Logger()
 
         kli(
-            { object : Config {} },
+            { object : Konfig {} },
             { put(logger) },
             LogConfigType()
         ).parse(listOf("log-config-type"))
 
         assertTrue {
-            logger.logged(Config::class.qualifiedName.toString())
+            logger.logged(Konfig::class.qualifiedName.toString())
         }
     }
 

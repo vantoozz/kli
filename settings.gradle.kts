@@ -1,2 +1,2 @@
 rootProject.name = "kli"
-include("core", "config")
+include("core", "config", "examples")

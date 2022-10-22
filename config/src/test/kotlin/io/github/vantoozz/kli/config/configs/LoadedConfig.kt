@@ -1,11 +1,11 @@
 package io.github.vantoozz.kli.config.configs
 
-import io.github.vantoozz.kli.config.Config
+import io.github.vantoozz.kli.config.Konfig
 
 internal data class LoadedConfig(
     val stringParam: String,
     val structParam: StructParam,
-) : Config {
+) : Konfig {
 
     internal data class StructParam(
         val someString: String,

@@ -1,0 +1,3 @@
+service:
+  hostname: localhost
+  port: 2345

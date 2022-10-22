@@ -1,7 +1,7 @@
 package io.github.vantoozz.kli.config.commands
 
 import io.github.vantoozz.kli.commands.KliCommand
-import io.github.vantoozz.kli.config.Config
+import io.github.vantoozz.kli.config.Konfig
 import io.github.vantoozz.kli.config.Logger
 
 internal class LogConfigType : KliCommand<LogConfigType.Handler>() {
@@ -13,7 +13,7 @@ internal class LogConfigType : KliCommand<LogConfigType.Handler>() {
     }
 
     internal class Handler(
-        private val config: Config,
+        private val config: Konfig,
         private val logger: Logger,
     ) {
         fun run() {

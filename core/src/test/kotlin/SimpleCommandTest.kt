@@ -1,7 +1,7 @@
 import com.github.ajalt.clikt.core.context
-import io.github.vantoozz.kli.mocks.CliktConsoleMock
 import io.github.vantoozz.kli.commands.SimpleHello
 import io.github.vantoozz.kli.kli
+import io.github.vantoozz.kli.mocks.CliktConsoleMock
 import org.junit.jupiter.api.Test
 import kotlin.test.assertTrue
 

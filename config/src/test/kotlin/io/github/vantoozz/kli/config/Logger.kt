@@ -1,6 +1,5 @@
 package io.github.vantoozz.kli.config
 
-
 internal class Logger {
     private val logged = mutableSetOf<String>()
 
