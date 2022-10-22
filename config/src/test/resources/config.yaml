@@ -1,0 +1,5 @@
+stringParam: some_value
+structParam:
+  someString: some_string_value
+  someInt: 123
+  someBoolean: true

@@ -7,6 +7,17 @@ import io.github.vantoozz.dikt.dikt
 import io.github.vantoozz.dikt.put
 import io.github.vantoozz.kli.commands.AbstractCommand
 import io.github.vantoozz.kli.config.Config
+import io.github.vantoozz.kli.config.yamlConfigLoader
+
+
+inline fun <reified T : Config> kli(
+    crossinline containerBuilder: MutableContainer.() -> Unit,
+    vararg commands: AbstractCommand<*>,
+) = kli(
+    yamlConfigLoader<T>(),
+    containerBuilder,
+    *commands
+)
 
 inline fun <reified T : Config> kli(
     crossinline configBuilder: (String?) -> T,

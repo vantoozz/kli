@@ -4,5 +4,7 @@ plugins {
 
 dependencies {
     api(project(":core"))
+
     implementation("com.sksamuel.hoplite:hoplite-core:${V.hoplite}")
+    implementation("com.sksamuel.hoplite:hoplite-yaml:${V.hoplite}")
 }
