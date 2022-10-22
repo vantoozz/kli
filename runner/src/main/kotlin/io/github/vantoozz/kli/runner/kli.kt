@@ -8,5 +8,18 @@ import io.github.vantoozz.kli.config.kli as configKli
 inline fun <reified T : Konfig> kli(
     crossinline containerBuilder: MutableContainer.() -> Unit,
     args: Array<String>,
-    vararg commands: KliCommand<*>,
-) = configKli<T>(containerBuilder, *commands).main(args)
+    commands: CommandsListBuilder.() -> Unit,
+) = configKli<T>(
+    containerBuilder,
+    *CommandsListBuilder().apply(commands).build()
+).main(args)
+
+class CommandsListBuilder {
+
+    private val commands: MutableList<KliCommand<*>> = mutableListOf()
+    fun add(command: KliCommand<*>) {
+        commands.add(command)
+    }
+
+    fun build() = commands.toTypedArray()
+}

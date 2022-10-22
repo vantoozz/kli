@@ -5,7 +5,7 @@ import io.github.vantoozz.kli.examples.commands.DescribeService
 import io.github.vantoozz.kli.runner.kli
 
 fun main(args: Array<String>) =
-    kli<Config>(container, args,
-        DescribeService(),
-        CallService()
-    )
+    kli<Config>(container, args) {
+        add(DescribeService())
+        add(CallService())
+    }
