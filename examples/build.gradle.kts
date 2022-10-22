@@ -4,7 +4,7 @@ plugins {
 }
 
 dependencies {
-    implementation(project(":config"))
+    implementation(project(":runner"))
 
     implementation("org.slf4j:slf4j-api:${V.slf4j}")
     implementation("ch.qos.logback:logback-core:${V.logback}")
