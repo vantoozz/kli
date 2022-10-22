@@ -40,7 +40,7 @@ internal class CommandEnvironmentTest {
                 bind<Logger>(mock)
             },
             LogEnvironment(),
-        ).parse(listOf("log-environment", "--env=some_value"))
+        ).parse(listOf("--env=some_value", "log-environment"))
 
         assertTrue {
             mock.logged("some_value")
@@ -57,7 +57,7 @@ internal class CommandEnvironmentTest {
                 bind<Logger>(mock)
             },
             LogEnvironment(),
-        ).parse(listOf("log-environment", "-e", "some_value"))
+        ).parse(listOf("-e", "some_value", "log-environment"))
 
         assertTrue {
             mock.logged("some_value")
