@@ -37,8 +37,6 @@ publishing {
             version = "0.0.1"
 
             pom {
-                name.set("KLI")
-                description.set("CLI-applications framework for Kotlin")
                 url.set("https://github.com/vantoozz/kli")
                 licenses {
                     license {

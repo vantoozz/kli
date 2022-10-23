@@ -8,3 +8,10 @@ dependencies {
     implementation("com.sksamuel.hoplite:hoplite-core:${V.hoplite}")
     implementation("com.sksamuel.hoplite:hoplite-yaml:${V.hoplite}")
 }
+
+publishing.publications.withType(MavenPublication::class).all{
+    pom {
+        name.set("KLI Config")
+        description.set("Config library for KLI")
+    }
+}
