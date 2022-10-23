@@ -1,8 +1,8 @@
 <component name="ProjectRunConfigurationManager">
-  <configuration default="false" name="call-service -e staging" type="JetRunConfigurationType">
+  <configuration default="false" name="-e staging call-service" type="JetRunConfigurationType">
     <option name="MAIN_CLASS_NAME" value="io.github.vantoozz.kli.examples.AppKt" />
     <module name="kli.examples.main" />
-    <option name="PROGRAM_PARAMETERS" value="call-service -e staging" />
+    <option name="PROGRAM_PARAMETERS" value="-e staging call-service" />
     <shortenClasspath name="NONE" />
     <method v="2">
       <option name="Make" enabled="true" />

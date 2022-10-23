@@ -2,10 +2,14 @@ package io.github.vantoozz.kli.config
 
 import com.sksamuel.hoplite.ConfigLoader
 
-inline fun <reified T : Konfig> yamlConfigLoader(): (String?) -> T = {
-    ConfigLoader().loadConfigOrThrow(
+inline fun <reified T : KliConfig> yamlConfigLoader(): (String?) -> T = { environment ->
+    T::class.takeIf {
+        it == KliConfig::class
+    }?.let {
+        object : KliConfig {} as T
+    } ?: ConfigLoader().loadConfigOrThrow(
         listOfNotNull(
-            it?.let { "/config.$it.yaml" },
+            environment?.let { "/config.$environment.yaml" },
             "/config.yaml"
         )
     )

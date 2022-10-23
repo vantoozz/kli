@@ -1,10 +1,10 @@
 package io.github.vantoozz.kli.examples
 
-import io.github.vantoozz.kli.config.Konfig
+import io.github.vantoozz.kli.config.KliConfig
 
 internal data class Config(
     val service: Service,
-) : Konfig {
+) : KliConfig {
     internal data class Service(
         val hostname: String,
         val port: Int,

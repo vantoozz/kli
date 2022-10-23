@@ -6,6 +6,6 @@ import io.github.vantoozz.kli.runner.kli
 
 fun main(args: Array<String>) =
     kli<Config>(container, args) {
-        add(DescribeService())
-        add(CallService())
+        +DescribeService()
+        +CallService()
     }

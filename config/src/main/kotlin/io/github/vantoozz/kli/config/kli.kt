@@ -5,7 +5,7 @@ import io.github.vantoozz.dikt.put
 import io.github.vantoozz.kli.commands.KliCommand
 import io.github.vantoozz.kli.kli as coreKli
 
-inline fun <reified T : Konfig> kli(
+inline fun <reified T : KliConfig> kli(
     crossinline containerBuilder: MutableContainer.() -> Unit,
     vararg commands: KliCommand<*>,
 ) = kli(
@@ -14,7 +14,7 @@ inline fun <reified T : Konfig> kli(
     *commands
 )
 
-inline fun <reified T : Konfig> kli(
+inline fun <reified T : KliConfig> kli(
     crossinline configBuilder: (String?) -> T,
     crossinline containerBuilder: MutableContainer.() -> Unit,
     vararg commands: KliCommand<*>,
@@ -22,7 +22,7 @@ inline fun <reified T : Konfig> kli(
     {
         configBuilder(it).let { config ->
             put(config)
-            put<Konfig>(config)
+            put<KliConfig>(config)
         }
 
         containerBuilder()
