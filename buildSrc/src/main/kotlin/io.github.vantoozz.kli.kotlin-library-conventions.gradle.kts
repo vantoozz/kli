@@ -1,8 +1,12 @@
+val ossrhUsername: String by project
+val ossrhPassword: String by project
+
 plugins {
     id("io.github.vantoozz.kli.kotlin-common-conventions")
     id("org.jetbrains.kotlinx.kover")
     `java-library`
     `maven-publish`
+    signing
 }
 
 java {
@@ -12,13 +16,25 @@ java {
 
 publishing {
     publications {
+        repositories {
+            maven {
+                name = "Sonatype"
+                url = if (version.toString().endsWith("SNAPSHOT")) {
+                    uri("https://s01.oss.sonatype.org/content/repositories/snapshots/")
+                } else {
+                    uri("https://s01.oss.sonatype.org/service/local/staging/deploy/maven2/")
+                }
+
+                credentials {
+                    username = project.properties["ossrhUsername"] as String
+                    password = project.properties["ossrhPassword"] as String
+                }
+            }
+        }
         create<MavenPublication>("kli") {
             from(components["java"])
             groupId = "io.github.vantoozz.kli"
             version = "0.0.1"
-//            afterEvaluate {
-//                artifactId = tasks.jar.get().archiveBaseName.get()
-//            }
 
             pom {
                 name.set("KLI")
@@ -45,6 +61,10 @@ publishing {
             }
         }
     }
+}
+
+signing {
+    sign(publishing.publications)
 }
 
 kover {
