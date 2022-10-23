@@ -66,7 +66,7 @@ internal class ConfiguredCommandTest {
         kli<LoadedConfig>(
             { put(logger) },
             LogLoadedConfig()
-        ).parse(listOf("log-loaded-config", "-e", "env_1"))
+        ).parse(listOf("-e", "env_1", "log-loaded-config"))
 
         assertTrue {
             logger.logged("env_1_string_value")
