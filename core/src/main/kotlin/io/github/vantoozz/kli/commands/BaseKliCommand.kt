@@ -6,9 +6,11 @@ import io.github.vantoozz.dikt.MutableContainer
 import io.github.vantoozz.dikt.dikt
 
 class BaseKliCommand(
+    name: String? = null,
     private val containerBuilder: MutableContainer.(String?) -> Unit,
-) : CliktCommand() {
-
+) : CliktCommand(
+    name = name,
+) {
     private val environment
             by option(
                 "-e", "--env",

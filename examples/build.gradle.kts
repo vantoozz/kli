@@ -20,7 +20,8 @@ dependencies {
     implementation("ch.qos.logback:logback-core:${V.logback}")
     implementation("ch.qos.logback:logback-classic:${V.logback}")
 
-    implementation("io.github.vantoozz.kli:runner:${V.kli}")
+//    implementation("io.github.vantoozz.kli:runner:${V.kli}")
+    implementation(project(":runner"))
 }
 
 application{

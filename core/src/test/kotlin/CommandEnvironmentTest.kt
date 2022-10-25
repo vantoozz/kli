@@ -14,7 +14,6 @@ import kotlin.test.assertTrue
 internal class CommandEnvironmentTest {
 
     @Test
-//    @Ignore("Need to set up environment variable")
     fun `it handles environment variable`() {
         val mock = LoggerMock()
         val envvars = mapOf("KLI_ENVIRONMENT" to "some_value")
