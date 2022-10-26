@@ -10,5 +10,5 @@ inline fun <reified T : KliConfig> kli(
     commands: CommandsListBuilder.() -> Unit,
 ) = configKli<T>(
     containerBuilder,
-    *CommandsListBuilder().apply(commands).build()
+    CommandsListBuilder().apply(commands).build()
 ).main(args)

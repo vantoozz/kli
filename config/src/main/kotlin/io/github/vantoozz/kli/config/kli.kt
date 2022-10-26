@@ -7,17 +7,35 @@ import io.github.vantoozz.kli.kli as coreKli
 
 inline fun <reified T : KliConfig> kli(
     crossinline containerBuilder: MutableContainer.() -> Unit,
-    vararg commands: KliCommand<*>,
+    command: KliCommand<*>,
+) = kli<T>(
+    containerBuilder,
+    setOf(command),
+)
+
+inline fun <reified T : KliConfig> kli(
+    crossinline containerBuilder: MutableContainer.() -> Unit,
+    commands: Collection<KliCommand<*>>,
 ) = kli(
     yamlConfigLoader<T>(),
     containerBuilder,
-    *commands
+    commands
 )
 
 inline fun <reified T : KliConfig> kli(
     crossinline configBuilder: (String?) -> T,
     crossinline containerBuilder: MutableContainer.() -> Unit,
-    vararg commands: KliCommand<*>,
+    command: KliCommand<*>,
+) = kli(
+    configBuilder,
+    containerBuilder,
+    setOf(command)
+)
+
+inline fun <reified T : KliConfig> kli(
+    crossinline configBuilder: (String?) -> T,
+    crossinline containerBuilder: MutableContainer.() -> Unit,
+    commands: Collection<KliCommand<*>>,
 ) = coreKli(
     {
         configBuilder(it).let { config ->
@@ -27,5 +45,5 @@ inline fun <reified T : KliConfig> kli(
 
         containerBuilder()
     },
-    *commands
+    commands
 )

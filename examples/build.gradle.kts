@@ -23,7 +23,7 @@ dependencies {
     implementation("io.github.vantoozz.kli:runner:${V.kli}")
 }
 
-application{
+application {
     mainClass.set("io.github.vantoozz.kli.examples.AppKt")
 }
 

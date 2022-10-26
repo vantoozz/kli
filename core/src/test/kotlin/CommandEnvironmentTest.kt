@@ -8,7 +8,6 @@ import io.github.vantoozz.kli.kli
 import io.github.vantoozz.kli.mocks.Logger
 import io.github.vantoozz.kli.mocks.LoggerMock
 import org.junit.jupiter.api.Test
-import kotlin.test.Ignore
 import kotlin.test.assertTrue
 
 internal class CommandEnvironmentTest {

@@ -10,7 +10,7 @@ class CommandsListBuilder {
         commands.add(command)
     }
 
-    fun build() = commands.toTypedArray()
+    fun build() = commands.toSet()
 
     operator fun KliCommand<*>.unaryPlus() {
         commands.add(this)

@@ -4,6 +4,7 @@ val ossrhPassword: String by project
 plugins {
     id("io.github.vantoozz.kli.kotlin-common-conventions")
     id("org.jetbrains.kotlinx.kover")
+    id("io.gitlab.arturbosch.detekt")
     `java-library`
     `maven-publish`
     signing
