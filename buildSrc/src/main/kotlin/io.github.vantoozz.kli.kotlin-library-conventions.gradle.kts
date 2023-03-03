@@ -35,7 +35,7 @@ publishing {
         create<MavenPublication>("kli") {
             from(components["java"])
             groupId = "io.github.vantoozz.kli"
-            version = "0.0.1"
+            version = "0.0.2"
 
             pom {
                 url.set("https://github.com/vantoozz/kli")

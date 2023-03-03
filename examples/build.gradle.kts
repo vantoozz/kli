@@ -8,7 +8,7 @@ repositories {
 }
 
 object V {
-    const val kli = "0.0.1"
+    const val kli = "0.0.2"
     const val logback = "1.2.11"
     const val slf4j = "1.7.36"
 }
