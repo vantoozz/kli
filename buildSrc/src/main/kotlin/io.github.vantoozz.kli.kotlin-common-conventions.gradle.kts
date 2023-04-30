@@ -1,5 +1,6 @@
 plugins {
     kotlin("jvm")
+    id("com.github.ben-manes.versions")
 }
 
 repositories {
@@ -7,8 +8,6 @@ repositories {
 }
 
 dependencies {
-    implementation(kotlin("bom"))
-
     testImplementation(kotlin("test"))
     testImplementation("org.junit.jupiter:junit-jupiter:${V.junit}")
 }

@@ -2,11 +2,11 @@ val ossrhUsername: String by project
 val ossrhPassword: String by project
 
 plugins {
-    id("io.github.vantoozz.kli.kotlin-common-conventions")
-    id("org.jetbrains.kotlinx.kover")
-    id("io.gitlab.arturbosch.detekt")
     `java-library`
     `maven-publish`
+    id("io.github.vantoozz.kli.kotlin-common-conventions")
+    id("io.gitlab.arturbosch.detekt")
+    id("org.jetbrains.kotlinx.kover")
     signing
 }
 
@@ -68,10 +68,13 @@ signing {
 
 kover {
     verify {
-        rule {
-            name = "Minimal line coverage rate in percents"
-            bound {
-                minValue = 100
+        kotlinx.kover.api.CounterType.values().forEach {
+            rule {
+                name = "Minimal ${it.name} coverage rate in percents"
+                bound {
+                    counter = it
+                    minValue = 100
+                }
             }
         }
     }
