@@ -8,9 +8,9 @@ repositories {
 }
 
 object V {
-    const val kli = "0.0.2"
-    const val logback = "1.2.11"
-    const val slf4j = "1.7.36"
+    const val kli = "0.1.0"
+    const val logback = "1.4.6"
+    const val slf4j = "2.0.5"
 }
 
 dependencies {
