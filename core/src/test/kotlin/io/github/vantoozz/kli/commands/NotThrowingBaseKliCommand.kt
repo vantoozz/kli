@@ -1,10 +1,17 @@
 package io.github.vantoozz.kli.commands
 
 import com.github.ajalt.clikt.core.CliktCommand
+import io.github.vantoozz.dikt.AutoClosableContainer
+import io.github.vantoozz.dikt.Options
 import io.github.vantoozz.dikt.dikt
+import io.github.vantoozz.dikt.diktAutoCloseable
 
 internal class NotThrowingBaseKliCommand : CliktCommand() {
     override fun run() {
-        currentContext.obj = { dikt(null) { } }
+        currentContext.obj = {
+            diktAutoCloseable(
+                setOf(Options.WITHOUT_EXCEPTION_ON_FAILURE)
+            ) {}
+        }
     }
 }

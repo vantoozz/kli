@@ -2,8 +2,10 @@ package io.github.vantoozz.kli.commands
 
 import com.github.ajalt.clikt.core.CliktCommand
 import com.github.ajalt.clikt.parameters.options.option
+import io.github.vantoozz.dikt.AutoClosableContainer
 import io.github.vantoozz.dikt.MutableContainer
 import io.github.vantoozz.dikt.dikt
+import io.github.vantoozz.dikt.diktAutoCloseable
 
 class BaseKliCommand(
     private val containerBuilder: MutableContainer.(String?) -> Unit,
@@ -17,6 +19,10 @@ class BaseKliCommand(
             )
 
     override fun run() {
-        currentContext.obj = { dikt { containerBuilder(environment) } }
+        currentContext.obj = {
+            diktAutoCloseable {
+                containerBuilder(environment)
+            }
+        }
     }
 }
