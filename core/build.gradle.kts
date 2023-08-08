@@ -4,6 +4,7 @@ plugins {
 
 dependencies {
     api("com.github.ajalt.clikt:clikt:${V.clikt}")
+    api("com.github.ajalt.clikt:clikt:${V.clikt}")
     api("io.github.vantoozz:dikt:${V.dikt}")
 }
 
