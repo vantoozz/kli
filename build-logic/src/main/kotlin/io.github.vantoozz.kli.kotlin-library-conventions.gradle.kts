@@ -1,9 +1,10 @@
-val ossrhUsername: String by project
-val ossrhPassword: String by project
+import fr.brouillard.oss.jgitver.Strategies
+import kotlinx.kover.gradle.plugin.dsl.MetricType
 
 plugins {
     `java-library`
     `maven-publish`
+    id("fr.brouillard.oss.gradle.jgitver")
     id("io.github.vantoozz.kli.kotlin-common-conventions")
     id("io.gitlab.arturbosch.detekt")
     id("org.jetbrains.kotlinx.kover")
@@ -15,27 +16,22 @@ java {
     withJavadocJar()
 }
 
+jgitver {
+    strategy = Strategies.MAVEN
+    useDirty = true
+}
+
 publishing {
     publications {
-        repositories {
-            maven {
-                name = "Sonatype"
-                url = if (version.toString().endsWith("SNAPSHOT")) {
-                    uri("https://s01.oss.sonatype.org/content/repositories/snapshots/")
-                } else {
-                    uri("https://s01.oss.sonatype.org/service/local/staging/deploy/maven2/")
-                }
-
-                credentials {
-                    username = project.properties["ossrhUsername"] as String
-                    password = project.properties["ossrhPassword"] as String
-                }
-            }
-        }
         create<MavenPublication>("kli") {
             from(components["java"])
             groupId = "io.github.vantoozz.kli"
-            version = "0.3.0"
+
+            versionMapping {
+                usage("java-runtime") {
+                    fromResolutionResult()
+                }
+            }
 
             pom {
                 url.set("https://github.com/vantoozz/kli")
@@ -59,6 +55,26 @@ publishing {
                 }
             }
         }
+
+        repositories {
+            maven {
+                name = "Sonatype"
+                afterEvaluate {
+                    url = if (project.version.toString().endsWith("-SNAPSHOT")
+                        || project.version.toString().endsWith("-dirty")
+                    ) {
+                        uri("https://s01.oss.sonatype.org/content/repositories/snapshots/")
+                    } else {
+                        uri("https://s01.oss.sonatype.org/service/local/staging/deploy/maven2/")
+                    }
+
+                    credentials {
+                        username = project.properties["ossrhUsername"] as String
+                        password = project.properties["ossrhPassword"] as String
+                    }
+                }
+            }
+        }
     }
 }
 
@@ -66,13 +82,12 @@ signing {
     sign(publishing.publications)
 }
 
-kover {
+koverReport {
     verify {
-        kotlinx.kover.api.CounterType.values().forEach {
-            rule {
-                name = "Minimal ${it.name} coverage rate in percents"
+        MetricType.values().forEach {
+            rule("Minimal ${it.name} coverage rate in percents") {
                 bound {
-                    counter = it
+                    metric = it
                     minValue = 100
                 }
             }
