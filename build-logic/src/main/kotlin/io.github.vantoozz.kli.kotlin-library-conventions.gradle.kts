@@ -1,5 +1,5 @@
 import fr.brouillard.oss.jgitver.Strategies
-import kotlinx.kover.gradle.plugin.dsl.MetricType
+import kotlinx.kover.gradle.plugin.dsl.CoverageUnit
 
 plugins {
     `java-library`
@@ -82,14 +82,26 @@ signing {
     sign(publishing.publications)
 }
 
-koverReport {
-    verify {
-        MetricType.values().forEach {
-            rule("Minimal ${it.name} coverage rate in percents") {
-                bound {
-                    metric = it
-                    minValue = 100
+
+kover {
+    reports {
+        verify {
+            CoverageUnit.values().forEach {
+                rule("Minimal ${it.name} coverage rate in percents") {
+                    bound {
+                        coverageUnits = it
+                        minValue = 100
+                    }
                 }
+            }
+        }
+        filters {
+            excludes {
+                classes(
+                    "com.zoominfo.traces.Proto*",
+                    "com.zoominfo.traces.*Kt",
+                    "com.zoominfo.traces.*$*",
+                )
             }
         }
     }

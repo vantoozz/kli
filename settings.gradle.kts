@@ -3,8 +3,8 @@ pluginManagement {
 }
 
 plugins {
-    id("com.gradle.enterprise") version ("3.11.2")
-    id("org.gradle.toolchains.foojay-resolver-convention") version ("0.8.0")
+    id("com.gradle.develocity") version ("3.19.1")
+    id("org.gradle.toolchains.foojay-resolver-convention") version ("0.9.0")
 }
 
 rootProject.name = "kli"
@@ -17,9 +17,9 @@ include(
     "runner",
 )
 
-gradleEnterprise {
+develocity {
     buildScan {
-        termsOfServiceUrl = "https://gradle.com/terms-of-service"
-        termsOfServiceAgree = "yes"
+        termsOfUseUrl = "https://gradle.com/terms-of-service"
+        termsOfUseAgree = "yes"
     }
 }

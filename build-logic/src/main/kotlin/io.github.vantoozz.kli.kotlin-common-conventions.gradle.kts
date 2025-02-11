@@ -1,4 +1,6 @@
-import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
+import com.github.benmanes.gradle.versions.updates.DependencyUpdatesTask
+import org.jetbrains.kotlin.gradle.dsl.JvmTarget
+import org.jetbrains.kotlin.gradle.dsl.KotlinVersion.KOTLIN_2_1
 
 plugins {
     kotlin("jvm")
@@ -18,15 +20,32 @@ tasks {
     test {
         useJUnitPlatform()
     }
-
-    withType<KotlinCompile> {
-        kotlinOptions.jvmTarget = "11"
-    }
 }
 
 kotlin {
+    compilerOptions {
+        apiVersion.set(KOTLIN_2_1)
+        jvmTarget.set(JvmTarget.JVM_21)
+    }
+
     jvmToolchain {
-        languageVersion.set(JavaLanguageVersion.of(11))
+        languageVersion.set(JavaLanguageVersion.of(21))
         vendor.set(JvmVendorSpec.ADOPTIUM)
     }
+}
+
+tasks.withType<DependencyUpdatesTask> {
+    rejectVersionIf {
+        !isStable(candidate.version)
+    }
+}
+
+fun isStable(version: String): Boolean {
+    if (setOf("RELEASE", "FINAL", "GA")
+            .any { version.uppercase().contains(it) }
+    ) {
+        return true
+    }
+
+    return "^[0-9,.v-]+(-r)?$".toRegex().matches(version)
 }
