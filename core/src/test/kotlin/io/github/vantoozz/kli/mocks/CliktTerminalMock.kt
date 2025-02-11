@@ -27,5 +27,4 @@ internal class CliktTerminalMock : TerminalInterface {
 
     override fun readLineOrNull(hideInput: Boolean) = null
 
-
 }

@@ -15,3 +15,7 @@ publishing.publications.withType(MavenPublication::class).all {
         description.set("Config library for KLI")
     }
 }
+
+kover {
+    disable()
+}

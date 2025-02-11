@@ -12,3 +12,7 @@ publishing.publications.withType(MavenPublication::class).all {
         description.set("Runner library for KLI")
     }
 }
+
+kover {
+    disable()
+}

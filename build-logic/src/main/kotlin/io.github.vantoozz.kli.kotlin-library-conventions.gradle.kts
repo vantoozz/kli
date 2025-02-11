@@ -82,7 +82,6 @@ signing {
     sign(publishing.publications)
 }
 
-
 kover {
     reports {
         verify {
