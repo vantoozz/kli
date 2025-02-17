@@ -69,8 +69,8 @@ publishing {
                     }
 
                     credentials {
-                        username = project.properties["ossrhUsername"] as String
-                        password = project.properties["ossrhPassword"] as String
+                        username = findProperty("ossrhTokenUsername") as String
+                        password = findProperty("ossrhTokenPassword") as String
                     }
                 }
             }
