@@ -5,9 +5,6 @@
       <module name="kli.buildSrc" target="11" />
       <module name="kli.buildSrc.main" target="11" />
       <module name="kli.buildSrc.test" target="11" />
-      <module name="kli.examples" target="11" />
-      <module name="kli.examples.main" target="11" />
-      <module name="kli.examples.test" target="11" />
     </bytecodeTargetLevel>
   </component>
 </project>

@@ -1,5 +1,8 @@
+import org.jetbrains.kotlin.gradle.dsl.JvmTarget
+import org.jetbrains.kotlin.gradle.dsl.KotlinVersion.KOTLIN_2_1
+
 plugins {
-    kotlin("jvm")
+    `kotlin-dsl`
     application
 }
 
@@ -8,16 +11,10 @@ repositories {
 }
 
 object V {
-    const val kli = "0.1.0"
-    const val logback = "1.4.6"
-    const val slf4j = "2.0.5"
+    const val kli = "1.0.0"
 }
 
 dependencies {
-    implementation("org.slf4j:slf4j-api:${V.slf4j}")
-    implementation("ch.qos.logback:logback-core:${V.logback}")
-    implementation("ch.qos.logback:logback-classic:${V.logback}")
-
     implementation("io.github.vantoozz.kli:runner:${V.kli}")
 }
 
@@ -25,15 +22,13 @@ application {
     mainClass.set("io.github.vantoozz.kli.examples.AppKt")
 }
 
-tasks {
-    withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile> {
-        kotlinOptions.jvmTarget = "11"
-    }
-}
-
 kotlin {
+    compilerOptions {
+        apiVersion.set(KOTLIN_2_1)
+        jvmTarget.set(JvmTarget.JVM_21)
+    }
+
     jvmToolchain {
-        languageVersion
-            .set(JavaLanguageVersion.of(11))
+        languageVersion.set(JavaLanguageVersion.of(21))
     }
 }
