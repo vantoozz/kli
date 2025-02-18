@@ -1,6 +1,7 @@
 package io.github.vantoozz.kli.commands
 
 import com.github.ajalt.clikt.core.CliktCommand
+import com.github.ajalt.clikt.core.obj
 import io.github.vantoozz.dikt.Options
 import io.github.vantoozz.dikt.diktAutoCloseable
 

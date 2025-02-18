@@ -14,3 +14,15 @@ publishing.publications.withType(MavenPublication::class).all {
         description.set("CLI-applications framework for Kotlin")
     }
 }
+
+kover {
+    reports {
+        filters {
+            excludes {
+                classes(
+                    "*\$inlined\$requireObject\$default*"
+                )
+            }
+        }
+    }
+}

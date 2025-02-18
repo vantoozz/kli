@@ -1,5 +1,6 @@
 package io.github.vantoozz.kli.config
 
+import com.github.ajalt.clikt.core.parse
 import io.github.vantoozz.dikt.put
 import io.github.vantoozz.kli.config.commands.LogConfigType
 import io.github.vantoozz.kli.config.commands.LogLoadedConfig

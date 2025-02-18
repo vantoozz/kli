@@ -1,3 +1,4 @@
+import com.github.ajalt.clikt.core.parse
 import com.github.ajalt.clikt.core.subcommands
 import io.github.vantoozz.dikt.bind
 import io.github.vantoozz.kli.commands.LogSomething

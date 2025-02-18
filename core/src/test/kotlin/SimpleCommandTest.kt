@@ -1,4 +1,5 @@
 import com.github.ajalt.clikt.core.context
+import com.github.ajalt.clikt.core.terminal
 import com.github.ajalt.clikt.testing.test
 import com.github.ajalt.mordant.terminal.Terminal
 import io.github.vantoozz.kli.commands.SimpleHello
@@ -15,7 +16,9 @@ internal class SimpleCommandTest {
 
         kli(SimpleHello().apply {
             context {
-                terminal = Terminal(mock)
+                terminal = Terminal(
+                    terminalInterface = mock
+                )
             }
         }).test(listOf("simple-hello"))
 

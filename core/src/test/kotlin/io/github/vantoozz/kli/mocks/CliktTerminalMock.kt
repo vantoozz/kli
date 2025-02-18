@@ -10,16 +10,18 @@ internal class CliktTerminalMock : TerminalInterface {
     private val printed = mutableSetOf<String>()
 
     fun printed(text: String) = printed.contains(text)
-    override val info: TerminalInfo
-        get() = TerminalInfo(
-            10,
-            10,
-            AnsiLevel.ANSI16,
-            ansiHyperLinks = false,
-            outputInteractive = false,
-            inputInteractive = false,
-            crClearsLine = false
-        )
+    override fun info(
+        ansiLevel: AnsiLevel?,
+        hyperlinks: Boolean?,
+        outputInteractive: Boolean?,
+        inputInteractive: Boolean?
+    ) = TerminalInfo(
+        ansiLevel = ansiLevel ?: AnsiLevel.ANSI16,
+        ansiHyperLinks = hyperlinks == true,
+        outputInteractive = outputInteractive == true,
+        inputInteractive = inputInteractive == true,
+        supportsAnsiCursor = false,
+    )
 
     override fun completePrintRequest(request: PrintRequest) {
         printed.add(request.text)

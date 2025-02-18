@@ -1,4 +1,5 @@
 import com.github.ajalt.clikt.core.context
+import com.github.ajalt.clikt.core.parse
 import com.github.ajalt.clikt.core.subcommands
 import io.github.vantoozz.dikt.bind
 import io.github.vantoozz.dikt.put
@@ -23,7 +24,7 @@ internal class CommandEnvironmentTest {
             bind<Logger>(mock)
         }.apply {
             context {
-                envvarReader = { envvars[it] }
+                readEnvvar = { envvars[it] }
             }
             subcommands(LogEnvironment())
         }.parse(listOf("log-environment"))
