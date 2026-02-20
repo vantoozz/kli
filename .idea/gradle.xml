@@ -22,7 +22,6 @@
             <option value="$PROJECT_DIR$/build-logic" />
             <option value="$PROJECT_DIR$/config" />
             <option value="$PROJECT_DIR$/core" />
-            <option value="$PROJECT_DIR$/examples" />
             <option value="$PROJECT_DIR$/runner" />
           </set>
         </option>

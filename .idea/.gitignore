@@ -10,3 +10,5 @@
 /ZeppelinRemoteNotebooks/
 # GitHub Copilot persisted chat sessions
 /copilot/chatSessions
+/copilot.data.migration.agent.xml
+/go.imports.xml
