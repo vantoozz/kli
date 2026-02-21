@@ -1,6 +1,6 @@
 import com.github.benmanes.gradle.versions.updates.DependencyUpdatesTask
 import org.jetbrains.kotlin.gradle.dsl.JvmTarget
-import org.jetbrains.kotlin.gradle.dsl.KotlinVersion.KOTLIN_2_1
+import org.jetbrains.kotlin.gradle.dsl.KotlinVersion.KOTLIN_2_3
 
 plugins {
     kotlin("jvm")
@@ -13,7 +13,6 @@ repositories {
 
 dependencies {
     testImplementation(kotlin("test"))
-    testImplementation("org.junit.jupiter:junit-jupiter:${V.junit}")
 }
 
 tasks {
@@ -24,7 +23,7 @@ tasks {
 
 kotlin {
     compilerOptions {
-        apiVersion.set(KOTLIN_2_1)
+        apiVersion.set(KOTLIN_2_3)
         jvmTarget.set(JvmTarget.JVM_21)
     }
 
