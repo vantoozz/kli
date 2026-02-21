@@ -55,30 +55,15 @@ publishing {
                 }
             }
         }
-
-        repositories {
-            maven {
-                name = "Sonatype"
-                afterEvaluate {
-                    url = if (project.version.toString().endsWith("-SNAPSHOT")
-                        || project.version.toString().endsWith("-dirty")
-                    ) {
-                        uri("https://s01.oss.sonatype.org/content/repositories/snapshots/")
-                    } else {
-                        uri("https://s01.oss.sonatype.org/service/local/staging/deploy/maven2/")
-                    }
-
-                    credentials {
-                        username = findProperty("ossrhTokenUsername") as String
-                        password = findProperty("ossrhTokenPassword") as String
-                    }
-                }
-            }
-        }
     }
 }
 
 signing {
+    val signingKey: String? by project
+    val signingPassword: String? by project
+    if (signingKey != null) {
+        useInMemoryPgpKeys(signingKey, signingPassword)
+    }
     sign(publishing.publications)
 }
 
