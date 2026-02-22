@@ -12,7 +12,7 @@ import kotlin.test.assertSame
 internal class RunnerTest {
 
     @Test
-    internal fun `it runs command`() {
+    fun `it runs command`() {
 
         val service = InMemoryService()
 

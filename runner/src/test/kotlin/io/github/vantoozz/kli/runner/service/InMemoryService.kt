@@ -2,7 +2,7 @@ package io.github.vantoozz.kli.runner.service
 
 import java.util.concurrent.atomic.AtomicInteger
 
-class InMemoryService : Service {
+internal class InMemoryService : Service {
 
     private val calls = AtomicInteger(0)
 

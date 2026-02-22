@@ -3,7 +3,7 @@ import io.github.vantoozz.dikt.put
 import io.github.vantoozz.kli.commands.UseAutoClosable
 import io.github.vantoozz.kli.kli
 import io.github.vantoozz.kli.mocks.AutoClosableService
-import org.junit.jupiter.api.Test
+import kotlin.test.Test
 import kotlin.test.assertEquals
 
 internal class AutoClosableTest {

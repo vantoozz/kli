@@ -8,13 +8,12 @@ import io.github.vantoozz.kli.commands.LogEnvironment
 import io.github.vantoozz.kli.kli
 import io.github.vantoozz.kli.mocks.Logger
 import io.github.vantoozz.kli.mocks.LoggerMock
-import org.junit.jupiter.api.Test
+import kotlin.test.Test
 import kotlin.test.assertTrue
 
 internal class CommandEnvironmentTest {
 
     @Test
-//    @Ignore("Need to set up environment variable")
     fun `it handles environment variable`() {
         val mock = LoggerMock()
         val envvars = mapOf("KLI_ENVIRONMENT" to "some_value")

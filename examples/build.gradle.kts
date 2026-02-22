@@ -1,8 +1,8 @@
 import org.jetbrains.kotlin.gradle.dsl.JvmTarget
-import org.jetbrains.kotlin.gradle.dsl.KotlinVersion.KOTLIN_2_1
+import org.jetbrains.kotlin.gradle.dsl.KotlinVersion.KOTLIN_2_3
 
 plugins {
-    `kotlin-dsl`
+    kotlin("jvm") version "2.3.10"
     application
 }
 
@@ -11,7 +11,7 @@ repositories {
 }
 
 object V {
-    const val kli = "1.0.0"
+    const val kli = "2.1.1"
 }
 
 dependencies {
@@ -24,7 +24,7 @@ application {
 
 kotlin {
     compilerOptions {
-        apiVersion.set(KOTLIN_2_1)
+        apiVersion.set(KOTLIN_2_3)
         jvmTarget.set(JvmTarget.JVM_21)
     }
 

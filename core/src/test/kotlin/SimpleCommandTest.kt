@@ -5,7 +5,7 @@ import com.github.ajalt.mordant.terminal.Terminal
 import io.github.vantoozz.kli.commands.SimpleHello
 import io.github.vantoozz.kli.kli
 import io.github.vantoozz.kli.mocks.CliktTerminalMock
-import org.junit.jupiter.api.Test
+import kotlin.test.Test
 import kotlin.test.assertTrue
 
 internal class SimpleCommandTest {

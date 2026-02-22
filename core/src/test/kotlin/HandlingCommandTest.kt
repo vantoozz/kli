@@ -6,7 +6,7 @@ import io.github.vantoozz.kli.commands.NotThrowingBaseKliCommand
 import io.github.vantoozz.kli.kli
 import io.github.vantoozz.kli.mocks.Logger
 import io.github.vantoozz.kli.mocks.LoggerMock
-import org.junit.jupiter.api.Test
+import kotlin.test.Test
 import org.junit.jupiter.api.assertDoesNotThrow
 import kotlin.test.assertTrue
 

@@ -7,7 +7,7 @@ import io.github.vantoozz.kli.config.commands.LogLoadedConfig
 import io.github.vantoozz.kli.config.commands.LogStaticConfig
 import io.github.vantoozz.kli.config.configs.LoadedConfig
 import io.github.vantoozz.kli.config.configs.StaticConfig
-import org.junit.jupiter.api.Test
+import kotlin.test.Test
 import kotlin.test.assertTrue
 
 internal class ConfiguredCommandTest {

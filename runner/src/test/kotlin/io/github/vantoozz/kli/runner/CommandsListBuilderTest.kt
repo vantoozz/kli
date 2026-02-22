@@ -8,7 +8,7 @@ import kotlin.test.assertSame
 internal class CommandsListBuilderTest {
 
     @Test
-    internal fun `it adds commands`() {
+    fun `it adds commands`() {
         val builder = CommandsListBuilder()
         builder.add(One())
         builder.add(Two())
@@ -17,7 +17,7 @@ internal class CommandsListBuilderTest {
     }
 
     @Test
-    internal fun `it adds commands with unary plus`() {
+    fun `it adds commands with unary plus`() {
         val builder = CommandsListBuilder()
             .apply {
                 +One()
